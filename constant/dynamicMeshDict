@@ -1,0 +1,60 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | foam-extend: Open Source CFD                    |
+|  \\    /   O peration     | Version:     3.0                                |
+|   \\  /    A nd           | Web:         http://www.extend-project.de       |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      dynamicMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dynamicFvMesh dynamicMotionSolverFvMesh;
+
+motionSolverLibs    ("libmyRBF.so"); 
+
+solver myRBF;
+
+movingPatches ( airfoil );
+
+staticPatches ( inlet outlet );
+
+coarseningRatio 10;
+
+includeStaticPatches   no;
+frozenInterpolation    yes;
+
+interpolation
+{
+    RBF  IMQB;
+    focalPoint (0 0 0);
+    innerRadius 2;//5.0
+    outerRadius 14;
+    polynomials true;
+
+	movingPoints ( p0 );
+
+    W2Coeffs
+    {
+        radius     1.0;
+    }
+    TPSCoeffs
+    {
+        radius     5.0;
+    }
+    GaussCoeffs
+    {
+        radius     0.1;
+    }
+    IMQBCoeffs
+    {
+        radius     0.001;
+    }
+}
+
+// ************************************************************************* //
