@@ -1,4 +1,4 @@
-# OpenFOAM-Rigid-Body-Motion-Case
+# OpenFOAM-Rigid-Flapping-Case
 
 ## This is a templet for rigid flapping motion of a NACA0012 airfoil.
 
