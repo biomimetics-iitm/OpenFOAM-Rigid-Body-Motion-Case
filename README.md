@@ -1,6 +1,6 @@
 # OpenFOAM-Rigid-Flapping-Case
 
-## This is a templet for rigid flapping motion of a NACA0012 airfoil.
+## This is a template for rigid flapping motion of a NACA0012 airfoil.
 
 * The mesh information is in polyMesh folder. The mesh was created using GAMBIT.
 
@@ -13,4 +13,5 @@
 * The flapping kinematics can be prescribed in "controlDict" under "RBFMotion" functionObject.
 * myRBF should be compiled each time by "compileLibrary myRBFMotionFunction".
 * Parallel run is governed by "decomposeParDict". 
-* To run in parallel: mpirun -np 16 icoDyMFoam -parallel > log 
+* To run in parallel: mpirun -np 16 icoDyMFoam -parallel > log
+ 
